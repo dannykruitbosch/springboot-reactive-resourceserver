@@ -1,0 +1,16 @@
+azure:
+  tenantId: ${AZURE_TENANTID}
+
+spring:
+  security:
+    oauth2:
+      resourceserver:
+        jwt:
+          jwk-set-uri: https://login.microsoftonline.com/${azure.tenantId}/discovery/keys
+          issuer-uri: https://login.microsoftonline.com/${azure.tenantId}
+
+logging:
+  level:
+    org:
+      springframework:
+        security: debug
