@@ -30,6 +30,8 @@ public class AzureADAuthoritiesConverter extends JwtAuthenticationConverter {
 
     }
 
+
+
     private List<SimpleGrantedAuthority> mapRoleToAuthorities(String role) {
 
         // Add a case statement for each Azure AD role

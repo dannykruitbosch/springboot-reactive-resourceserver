@@ -8,12 +8,16 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RestController;
 import reactor.core.publisher.Mono;
 
+import java.security.Principal;
+
 @RestController
 public class SimpleController {
 
     @GetMapping("/")
     @PreAuthorize("hasAuthority('read:employee')")
-    public Mono<String> index(@AuthenticationPrincipal Jwt jwt) {
+    public Mono<String> index(@AuthenticationPrincipal Jwt jwt, Principal principal) {
+
+        String name = principal.getName();
 
         return Mono.just("Hello " + jwt.getSubject());
     }

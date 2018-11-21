@@ -23,7 +23,8 @@ public class SecurityConfig {
                 .anyExchange().authenticated()
                 .and()
             .oauth2ResourceServer()
-                .jwt().jwtAuthenticationConverter(grantedAuthoritiesExtractor());
+                .jwt()
+                    .jwtAuthenticationConverter(grantedAuthoritiesExtractor());
         return http.build();
     }
 
